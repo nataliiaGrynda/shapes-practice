@@ -1,5 +1,6 @@
-import java.util.ArrayList;
 
+import java.util.ArrayList;
+import java.util.Scanner;
 /**
  *
  * FIRST, COMPLETE Shape interface
@@ -7,19 +8,19 @@ import java.util.ArrayList;
  * LASTLY, COMPLETE TestShapes class
  */
 
-public class TestShapes {
-    public static void main(String[] args) {
+public class TestShapes{
+
+  public static void main(String[] args) {
 
         /*
         This will be our actual program that we request some information from user to create 3 objects
         We will create 1 Rectangle, 1 Square and 1 Circle object
 
-        Information to create objects will be as below
+          Information to create objects will be as below
          -width of the rectangle = 5.5
          -height of the rectangle = 6
          -side of the square = 2.5
          -radius of the circle = 4
-
 
          Then print each object
          And print area and perimeters of each object
@@ -42,5 +43,47 @@ public class TestShapes {
          */
 
 
+        Rectangle rectangle = new Rectangle();
+        rectangle.setWidth(5.5);
+        rectangle.setHeight(6.0);
+        Square square = new Square();
+        square.setSide(2.5);
+        Circle circle = new Circle();
+        circle.setRadius(4.0);
+
+       // System.out.println(circle);
+       // System.out.println(rectangle);
+       // System.out.println(square);
+
+    ArrayList<Shape> shapes = new ArrayList<>();
+    shapes.add(rectangle);
+    shapes.add(square);
+    shapes.add(circle);
+
+
+    System.out.println("\n" + circle);
+    System.out.println("Area of the Circle is = " + circle.area());
+    System.out.println("Perimeter of the Circle is = " + circle.perimeter());
+
+
+    System.out.println("\n" + rectangle);
+    System.out.println("Area of the the Rectangle is = " + rectangle.area());
+    System.out.println("Perimeter of the Rectangle is = " + rectangle.perimeter());
+
+    System.out.println("\n" + square);
+    System.out.println("Area of the Square is = " + square.area());
+    System.out.println("Perimeter of the Square is = " + square.perimeter());
+
+
+   double max = Integer.MIN_VALUE;
+   Shape largestArea = null;
+    for (Shape shape : shapes) {
+      if(shape.area() > max) max = shape.area();
+      largestArea = shape;
     }
+
+    System.out.println("\n" + largestArea.getClass().getSimpleName() + " has the largest area as " + max);
+
+    }
+
 }
